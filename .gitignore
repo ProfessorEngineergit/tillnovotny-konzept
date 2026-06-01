@@ -1,0 +1,9 @@
+# Nachgebaute ALTE Website (lokaler Offline-Mirror, ~33 MB) – NICHT versionieren
+site/
+
+# macOS / Editor
+.DS_Store
+**/.DS_Store
+
+# lokale Tooling-Config
+.claude/

@@ -1,0 +1,167 @@
+/* Till Novotny – Konzept-Prototyp
+   Designsprache abgeleitet aus tillnovotny.de:
+   dunkle Töne, Akzent-Rot #c02b0a, Akzent-Blau #6ec1e4, Roboto */
+
+:root {
+  --ink: #1f2124;
+  --ink-2: #3a3a3a;
+  --grey: #69727d;
+  --grey-light: #f4f5f6;
+  --line: #e3e6e8;
+  --red: #c02b0a;
+  --red-dark: #9d220a;
+  --blue: #6ec1e4;
+  --white: #ffffff;
+  --max: 1120px;
+  --radius: 10px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.6;
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+h1, h2, h3, h4 { line-height: 1.2; color: var(--ink); font-weight: 700; }
+h2 { font-size: clamp(1.6rem, 3vw, 2.3rem); margin: 0 0 .6em; }
+p { margin: 0 0 1em; }
+a { color: var(--red); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.mono { font-family: monospace; letter-spacing: .02em; }
+
+/* Konzept-Banner */
+.concept-bar {
+  background: var(--ink);
+  color: #e9ecef;
+  font-size: .86rem;
+  text-align: center;
+  padding: 9px 16px;
+}
+.concept-bar strong { color: var(--blue); }
+.concept-bar em { color: #fff; font-style: normal; font-weight: 500; }
+.concept-bar a { color: var(--blue); margin-left: 10px; white-space: nowrap; }
+
+/* Header */
+.site-header {
+  position: sticky; top: 0; z-index: 20;
+  background: rgba(255,255,255,.95);
+  backdrop-filter: saturate(180%) blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+.header-inner { display: flex; align-items: center; justify-content: space-between; height: 66px; }
+.brand { color: var(--ink); font-weight: 700; letter-spacing: .18em; font-size: 1.05rem; }
+.brand:hover { text-decoration: none; }
+.main-nav { display: flex; gap: 22px; align-items: center; }
+.main-nav a { color: var(--ink-2); font-size: .92rem; font-weight: 500; }
+.main-nav a:hover { color: var(--red); text-decoration: none; }
+.nav-cta {
+  background: var(--red); color: #fff !important;
+  padding: 8px 16px; border-radius: 6px;
+}
+.nav-cta:hover { background: var(--red-dark); }
+
+/* Hero */
+.hero {
+  background:
+    radial-gradient(1200px 400px at 80% -10%, rgba(110,193,228,.18), transparent),
+    linear-gradient(180deg, #fafbfc 0%, #fff 100%);
+  padding: 88px 0 72px;
+  border-bottom: 1px solid var(--line);
+}
+.kicker { color: var(--red); font-weight: 700; letter-spacing: .14em; text-transform: uppercase; font-size: .8rem; margin-bottom: 14px; }
+.hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); margin: 0 0 .5em; }
+.lead { font-size: 1.15rem; color: var(--ink-2); max-width: 640px; }
+.lead .mono { color: var(--grey); }
+.hero-cta { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 28px; }
+
+.btn { display: inline-block; padding: 13px 26px; border-radius: 7px; font-weight: 500; font-size: .98rem; transition: .15s; }
+.btn:hover { text-decoration: none; transform: translateY(-1px); }
+.btn-primary { background: var(--red); color: #fff; }
+.btn-primary:hover { background: var(--red-dark); }
+.btn-ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--ink); }
+.btn-ghost:hover { background: var(--ink); color: #fff; }
+
+/* Pillars */
+.pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; padding: 56px 24px; }
+.pillar { padding: 28px; border: 1px solid var(--line); border-radius: var(--radius); background: #fff; transition: .15s; }
+.pillar:hover { box-shadow: 0 10px 30px rgba(31,33,36,.08); transform: translateY(-3px); }
+.pillar-num { color: var(--blue); font-weight: 700; font-size: 1.4rem; }
+.pillar h3 { margin: 10px 0 8px; font-size: 1.2rem; }
+.pillar p { color: var(--grey); margin: 0; }
+
+/* Sections */
+.section { padding: 76px 0; }
+.section.alt { background: var(--grey-light); }
+.eyebrow { color: var(--red); font-weight: 700; text-transform: uppercase; letter-spacing: .12em; font-size: .78rem; margin-bottom: 10px; }
+.section-intro { font-size: 1.1rem; color: var(--ink-2); max-width: 680px; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+.link-arrow { font-weight: 600; }
+.link-arrow::after { content: " →"; }
+
+/* Mini-cards (Enneagramm) */
+.card-stack { display: grid; gap: 14px; }
+.mini-card { background: #fff; border: 1px solid var(--line); border-left: 4px solid var(--blue); border-radius: 8px; padding: 16px 18px; }
+.mini-card h4 { margin: 0 0 4px; }
+.mini-card p { margin: 0; color: var(--grey); }
+
+/* Content cards grid */
+.grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 22px; margin-top: 36px; }
+.content-card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; transition: .15s; }
+.content-card:hover { box-shadow: 0 10px 30px rgba(31,33,36,.08); transform: translateY(-3px); }
+.content-card h3 { font-size: 1.15rem; margin: 0 0 10px; }
+.content-card p { color: var(--grey); }
+.tag { display: inline-block; margin-top: 6px; font-size: .72rem; text-transform: uppercase; letter-spacing: .08em; color: var(--red); background: rgba(192,43,10,.08); padding: 4px 10px; border-radius: 20px; font-weight: 600; }
+
+/* Topic list */
+.topic-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+.topic-list li { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 14px 18px; font-weight: 500; }
+.topic-list li::before { content: "›  "; color: var(--blue); font-weight: 700; }
+
+/* Quote */
+.quote-section { background: var(--ink); color: #e9ecef; text-align: center; }
+.quote-section h2 { color: #fff; }
+.quote-section blockquote { font-size: clamp(1.4rem, 3.4vw, 2.1rem); font-weight: 300; color: #fff; margin: 0 auto .4em; max-width: 760px; line-height: 1.4; }
+.quote-by { color: var(--blue); margin-bottom: 28px; }
+.about-text { max-width: 680px; margin: 0 auto; }
+.about-text p { color: #c8cdd2; }
+
+/* Konzept */
+.concept-grid { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 16px; align-items: stretch; margin: 36px 0 50px; }
+.concept-step { background: #fff; border: 1px solid var(--line); border-top: 3px solid var(--red); border-radius: var(--radius); padding: 22px; }
+.step-badge { display: inline-block; font-size: .72rem; text-transform: uppercase; letter-spacing: .1em; color: #fff; background: var(--ink); padding: 3px 10px; border-radius: 20px; font-weight: 600; }
+.concept-step h3 { font-size: 1.1rem; margin: 12px 0 8px; }
+.concept-step p { color: var(--grey); margin: 0; font-size: .94rem; }
+.concept-arrow { display: flex; align-items: center; justify-content: center; color: var(--blue); font-size: 1.6rem; font-weight: 700; }
+
+.map-title { font-size: 1.25rem; margin: 8px 0 16px; }
+.map-table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; font-size: .94rem; }
+.map-table th, .map-table td { text-align: left; padding: 13px 18px; border-bottom: 1px solid var(--line); }
+.map-table th { background: var(--grey-light); font-weight: 700; }
+.map-table td:first-child { font-family: monospace; color: var(--grey); }
+.map-table tr:last-child td { border-bottom: none; }
+.map-table em { color: var(--red); font-style: normal; }
+
+/* Kontakt */
+.contact-inner { text-align: center; max-width: 620px; margin: 0 auto; }
+.contact-inner .btn { margin-top: 8px; }
+
+/* Footer */
+.site-footer { background: var(--ink); color: #aeb4ba; padding: 28px 0; font-size: .86rem; }
+.footer-inner { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.footer-note { color: #6b7178; }
+
+/* Responsive */
+@media (max-width: 860px) {
+  .main-nav { gap: 12px; }
+  .main-nav a:not(.nav-cta) { display: none; }
+  .pillars { grid-template-columns: 1fr; }
+  .two-col { grid-template-columns: 1fr; gap: 28px; }
+  .concept-grid { grid-template-columns: 1fr; }
+  .concept-arrow { transform: rotate(90deg); }
+}
