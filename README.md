@@ -2,44 +2,52 @@
 
 Ein **Demo-Prototyp** als Vorschlag, wie die _Inhalte_ der bestehenden
 panlogos-Webauftritte unter der neuen, auf den **Namen Till Novotny**
-ausgerichteten Marke erscheinen könnten.
+ausgerichteten Marke erscheinen könnten – im echten Design der neuen Seite
+(<https://tillnovotny.de>): Inter-Schrift, Schwarz auf Off-White, Pink-Akzent.
 
-> **Wichtig:** Dies ist ein Vorschlag/Prototyp, keine fertige Website.
-> Shop, Online-Kurse und Backend bleiben bewusst außen vor – migriert wird nur
-> der frei lesbare, zeitlose **Inhalt**.
+> **Hinweis:** Vorschlag/Prototyp, keine fertige Website. Es werden ausschließlich
+> Till Novotnys **eigene** Inhalte aus seinen eigenen Seiten zusammengeführt.
+> Shop, Online-Kurse und Backend bleiben bewusst außen vor.
+
+## Drei Haupt-Tabs
+
+1. **Enneagramm** — der Inhalt, der heute schon auf der neuen Seite steht
+   (Selbst-Entwicklung, Über mich, Leitgedanke, Kontakt).
+2. **Panlogos** — der **komplette migrierte Inhalt** der alten Seiten
+   (panlogos.org + panlogos.de) im neuen Design, mit Seitenleisten-Navigation.
+   43 Inhaltsseiten in 7 Gruppen: Idee & Philosophie, Team, Übungen, Werkzeuge,
+   Wissen, Das Logo, Über Till.
+3. **Partner** — die Partner:innen wie auf der neuen Seite; alle Links führen
+   extern zu den jeweils eigenen Websites (mit ↗ markiert).
 
 ## Ansehen
 
-- **Lokal:** `python3 -m http.server 4174 --directory docs` → <http://localhost:4174/>
-- **GitHub Pages:** nach Aktivierung (Settings → Pages → Branch `main`, Ordner `/docs`)
+- **Lokal:** `python3 -m http.server 4175 --directory docs` → <http://localhost:4175/>
+- **GitHub Pages:** Settings → Pages → Branch `main`, Ordner `/docs`
 
-## Was der Prototyp zeigt
+## Reproduzierbar bauen
 
-Eine Single-Page-Demo im Designstil der neuen Seite (tillnovotny.de) mit:
+Die Seite wird aus dem lokalen Offline-Mirror der alten Seiten generiert:
 
-1. **Hero** – Name statt Firma im Vordergrund.
-2. **Drei Säulen** – Persönlichkeit · Führung · Kreativität.
-3. **Selbst-Entwicklung** – das bestehende Enneagramm-Angebot als Einstieg.
-4. **Kreativität & Werkzeuge** – migrierte panlogos-Inhalte (Kreativitäts-
-   verstärker, Wachheitstrainer, Gedankensprünge, Wort-Schatz).
-5. **Wissen & Bücher** – Buchempfehlungen + eigene Veröffentlichungen.
-6. **Über mich** – Philosophie/Leitgedanke.
-7. **Konzept-Abschnitt** – erklärt die Integration inkl. **Content-Mapping**
-   (alt → neu) und der bewussten Abgrenzung gegenüber Shop/Backend.
+```bash
+python3 build_concept.py   # liest site/…  ->  schreibt docs/
+```
 
-## Idee in einem Satz
-
-Drei Auftritte (panlogos.de, panlogos.org, tillnovotny.de), eine künftige Marke:
-die Substanz aus ~90 panlogos-Seiten wird in vier klare Rubriken unter dem Namen
-**Till Novotny** überführt.
+`build_concept.py` extrahiert den Hauptinhalt (`col_wide`) jeder alten Seite,
+säubert ihn (entfernt Theme-Reste/Skripte), markiert externe Links und legt die
+Demo als Single-Page mit drei Tabs an. Verwendete Bilder werden nach
+`docs/assets/img/` kopiert.
 
 ## Repo-Inhalt
 
 ```
+build_concept.py     # Generator (Alt-Inhalt -> Demo)
 docs/
-  index.html         # der Prototyp
-  assets/styles.css  # Designsystem (abgeleitet aus tillnovotny.de)
+  index.html         # die generierte Demo (3 Tabs)
+  assets/styles.css  # Designsystem (1:1 an tillnovotny.de angelehnt)
+  assets/app.js      # Tab- und Sidebar-Logik
+  assets/img/        # aus dem Alt-Inhalt übernommene Bilder
 ```
 
-Die lokal nachgebaute **alte** Website (Offline-Mirror, ~33 MB) ist über
-`.gitignore` bewusst aus dem Repo ausgeschlossen.
+Die lokal nachgebaute **alte** Website (Offline-Mirror, ~33 MB unter `site/`)
+ist über `.gitignore` bewusst aus dem Repo ausgeschlossen.
