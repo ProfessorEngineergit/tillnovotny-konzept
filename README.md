@@ -10,8 +10,8 @@ ausgerichteten Marke erscheinen könnten.
 
 ## Ansehen
 
-- **Lokal:** `python3 -m http.server 4174 --directory demo` → <http://localhost:4174/>
-- **GitHub Pages:** nach Aktivierung (Settings → Pages → Branch `main`, Ordner `/demo`)
+- **Lokal:** `python3 -m http.server 4174 --directory docs` → <http://localhost:4174/>
+- **GitHub Pages:** nach Aktivierung (Settings → Pages → Branch `main`, Ordner `/docs`)
 
 ## Was der Prototyp zeigt
 
@@ -36,7 +36,7 @@ die Substanz aus ~90 panlogos-Seiten wird in vier klare Rubriken unter dem Namen
 ## Repo-Inhalt
 
 ```
-demo/
+docs/
   index.html         # der Prototyp
   assets/styles.css  # Designsystem (abgeleitet aus tillnovotny.de)
 ```
