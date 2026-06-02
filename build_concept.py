@@ -48,14 +48,18 @@ def clean_text(s):
 
 EXT_RE = re.compile(r'^(https?:)?//', re.I)
 
-def sanitize_html(body, base_dir):
+def sanitize_html(body, base_dir, link_map=None):
     """
     Säubert den extrahierten Alt-Inhalt:
       - entfernt Skripte/Style/Kommentare/leere &nbsp;-Absätze
       - entfernt das (im Theme doppelte) erste <h1> (wir setzen den Titel selbst)
-      - markiert externe Links mit class ext-hint, interne werden zu # (Demo)
-      - entfernt nicht ladbare Bilder; lässt vorhandene relativ stehen
+      - ENTFERNT alle Layout-Wrapper (<div>/<span>/<table>-Reste des alten Themes),
+        deren unbalancierte Tags sonst die Artikel ineinander verschachteln
+      - externe Links -> ext-hint (↗), interne Links -> echte In-Page-Navigation
+        zum migrierten Dokument (via link_map), sonst nur Text
+      - entfernt nicht ladbare Bilder; vorhandene werden lokal kopiert
     """
+    link_map = link_map or {}
     b = body
     b = re.sub(r'<script.*?</script>', '', b, flags=re.S | re.I)
     b = re.sub(r'<style.*?</style>', '', b, flags=re.S | re.I)
@@ -65,19 +69,27 @@ def sanitize_html(body, base_dir):
     # leere &nbsp;-Absätze / align-center-Bilderhüllen vereinfachen
     b = re.sub(r'<p[^>]*>\s*(&nbsp;|\s)*</p>', '', b)
 
-    # Links verarbeiten
+    # Links verarbeiten (vor dem Entfernen der Wrapper, solange <a> intakt ist)
     def fix_link(m):
         attrs, inner = m.group(1), m.group(2)
         href = re.search(r'href="([^"]*)"', attrs)
-        url = href.group(1) if href else ""
+        url = (href.group(1) if href else "").strip()
         if url.startswith("mailto:"):
             return f'<a href="{url}">{inner}</a>'
         if EXT_RE.match(url) or url.startswith("http"):
             host = re.sub(r'^https?://', '', url).split('/')[0]
             return (f'<a class="ext-hint" href="{url}" target="_blank" '
                     f'rel="noopener external" title="Externe Website: {host}">{inner}</a>')
-        # interne alte Links -> in der Demo deaktiviert (Inhalt liegt als eigener Eintrag vor)
-        return f'<a href="#" class="int-old" data-old="{url}">{inner}</a>'
+        if not url or url.startswith("#"):
+            return inner  # Anker ins Leere -> nur Text
+        # interner alter Link -> auf migriertes Dokument auflösen
+        target = os.path.normpath(os.path.join(base_dir, url.split("#")[0]))
+        rel = os.path.relpath(target, SITE).replace(os.sep, "/")
+        did = link_map.get(rel)
+        if did:
+            return f'<a href="#{did}" class="doc-link" data-doc="{did}">{inner}</a>'
+        # Ziel nicht migriert (z. B. Shop/Backend) -> nur Text behalten
+        return inner
     b = re.sub(r'<a\s+([^>]*)>(.*?)</a>', fix_link, b, flags=re.S | re.I)
 
     # Bilder: nur behalten, wenn lokal auflösbar; sonst entfernen
@@ -100,7 +112,24 @@ def sanitize_html(body, base_dir):
         return ''
     b = re.sub(r'<img[^>]*>', fix_img, b, flags=re.I)
 
-    # mehrfleerzeilen zusammenfassen
+    # --- Layout-Reste entfernen (Ursache der zerrissenen Artikel) ---
+    # Tabellen/Wrapper des alten Themes raus, Inhalt behalten.
+    for tag in ("div", "span", "table", "tbody", "thead", "tr", "td", "th",
+                "font", "center", "form", "label", "input", "iframe", "embed"):
+        b = re.sub(rf'</?{tag}\b[^>]*>', ' ', b, flags=re.I)
+    # nur eine erlaubte, sichere Untermenge an Tags behalten
+    ALLOWED = {"p","a","ul","ol","li","strong","b","em","i","br","h2","h3",
+               "h4","blockquote","img","sub","sup"}
+    def keep_allowed(m):
+        tag = re.match(r'</?\s*([a-zA-Z0-9]+)', m.group(0))
+        name = tag.group(1).lower() if tag else ""
+        return m.group(0) if name in ALLOWED else ' '
+    b = re.sub(r'<[^>]+>', keep_allowed, b)
+
+    # Aufräumen: leere Listen/Absätze, Mehrfach-<br>, Whitespace
+    b = re.sub(r'<(p|li|ul|ol)>\s*(&nbsp;|\s)*</\1>', '', b)
+    b = re.sub(r'(<br\s*/?>\s*){3,}', '<br/><br/>', b)
+    b = re.sub(r'[ \t]+', ' ', b)
     b = re.sub(r'(\s*<p>\s*</p>\s*)+', '\n', b)
     b = re.sub(r'\n{3,}', '\n\n', b)
     return b.strip()
@@ -175,27 +204,39 @@ def collect_gedankenspruenge():
     return pages
 
 def build_entries():
-    entries = []   # {id, group, title, html}
-    seen = set()
     groups = [ (name, list(paths)) for name, paths in GROUPS ]
     # Gedankensprünge-Unterseiten in die Übungen-Gruppe einhängen
     for name, paths in groups:
         if name == "Übungen":
             paths += collect_gedankenspruenge()
+
+    # --- Pass 1: gültige Seiten + Titel sammeln, Slug-Kollisionen vermeiden ---
+    planned = []          # (gname, rel, path, title, doc_id)
+    seen, used_ids = set(), set()
     for gname, paths in groups:
         for rel in paths:
             p = SITE / rel
             if not p.exists() or rel in seen:
                 continue
             seen.add(rel)
-            t = read(p)
-            title = extract_title(t)
-            raw = extract_col_wide(t)
-            cleaned = sanitize_html(raw, p.parent)
-            if len(clean_text(cleaned)) < 40:
-                continue  # leere/triviale Seiten überspringen
+            title = extract_title(read(p))
             eid = slugify(gname[:4] + "-" + title)
-            entries.append({"id": eid, "group": gname, "title": title, "html": cleaned})
+            base, n = eid, 2
+            while eid in used_ids:        # eindeutige IDs erzwingen
+                eid = f"{base}-{n}"; n += 1
+            used_ids.add(eid)
+            planned.append((gname, rel, p, title, eid))
+
+    # link_map: relativer Mirror-Pfad -> doc_id (für interne Querverweise)
+    link_map = { rel: did for (_, rel, _, _, did) in planned }
+
+    # --- Pass 2: Inhalt säubern (mit aufgelösten internen Links) ---
+    entries = []
+    for gname, rel, p, title, eid in planned:
+        cleaned = sanitize_html(extract_col_wide(read(p)), p.parent, link_map)
+        if len(clean_text(cleaned)) < 40:
+            continue  # leere/triviale Seiten überspringen
+        entries.append({"id": eid, "group": gname, "title": title, "html": cleaned})
     return entries
 
 PARTNERS = [
@@ -352,6 +393,7 @@ PAGE = """<!DOCTYPE html>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="assets/styles.css" />
+<script type="module" src="assets/nebula.js"></script>
 </head>
 <body>
 

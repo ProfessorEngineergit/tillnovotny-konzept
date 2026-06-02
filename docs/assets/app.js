@@ -46,12 +46,15 @@
       });
     });
     if (links[0]) links[0].classList.add("active");
-  }
 
-  // alte interne Links (in migriertem Inhalt) -> in den Panlogos-Tab lenken
-  document.querySelectorAll("a.int-old").forEach(function (a) {
-    a.addEventListener("click", function (e) { e.preventDefault(); });
-  });
+    // Querverweise INNERHALB eines Dokuments -> Zieldokument öffnen
+    docContent.addEventListener("click", function (e) {
+      var a = e.target.closest("a.doc-link");
+      if (!a) return;
+      e.preventDefault();
+      showDoc(a.dataset.doc);
+    });
+  }
 
   // mobiles Menü
   var mt = document.getElementById("menuToggle");
