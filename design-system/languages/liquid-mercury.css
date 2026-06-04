@@ -1,0 +1,50 @@
+/* 02 — LIQUID MERCURY : reflective chrome, metaball silver on charcoal */
+body.lang-liquid-mercury{
+  --bg:#0c0d11; --bg-2:#121419;
+  --surface:rgba(196,206,221,.06); --surface-2:rgba(196,206,221,.10); --surface-3:rgba(196,206,221,.16);
+  --border:rgba(206,216,231,.16); --border-strong:rgba(224,232,244,.42);
+  --text:#eef1f6; --text-dim:#a7adbb; --text-faint:#6a7080;
+  --accent:#e2e9f3; --accent-2:#9fb0c6; --accent-ink:#15171d; --glow:rgba(206,219,238,.32);
+  --radius:15px; --radius-lg:24px;
+}
+/* chrome accents */
+.lang-liquid-mercury .db-logo,
+.lang-liquid-mercury .db-btn.is-primary,
+.lang-liquid-mercury .db-nav a.is-active,
+.lang-liquid-mercury .db-seg button.is-active{
+  background:linear-gradient(160deg,#ffffff,#c4cdda 35%,#7e8a9c 70%,#d0d9e4);
+  color:#16181e; text-shadow:0 1px 0 rgba(255,255,255,.5);
+}
+.lang-liquid-mercury .db-btn.is-primary{box-shadow:0 10px 26px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.85);}
+.lang-liquid-mercury .db-card,
+.lang-liquid-mercury .db-panel,
+.lang-liquid-mercury .db-topbar,
+.lang-liquid-mercury .db-spec{
+  background:linear-gradient(160deg,rgba(224,232,244,.10),rgba(160,170,185,.025));
+  box-shadow:var(--shadow), inset 0 1px 0 rgba(255,255,255,.20);
+}
+/* metaball chrome bg */
+.lang-liquid-mercury .db-bg{background:radial-gradient(circle at 50% 45%,#161922,#0a0b0f 78%);}
+.lang-liquid-mercury .db-bg>i{border-radius:50%; filter:blur(64px); opacity:.5;}
+.lang-liquid-mercury .db-bg>i:nth-child(1){width:500px;height:500px;top:-120px;right:-60px;
+  background:radial-gradient(circle at 35% 30%,#eef3fa,#7c889a 58%,transparent 72%);}
+.lang-liquid-mercury .db-bg>i:nth-child(2){width:580px;height:580px;bottom:-180px;left:-120px;
+  background:radial-gradient(circle at 60% 40%,#d3dce8,#5b6573 58%,transparent 72%);}
+.lang-liquid-mercury .db-bg>i:nth-child(3){width:340px;height:340px;top:40%;left:50%;
+  background:radial-gradient(circle at 50% 40%,#c2ccd9,transparent 70%);}
+/* mercury-droplet toggle */
+.lang-liquid-mercury .db-toggle-track{
+  width:74px; height:34px; background:linear-gradient(180deg,#1a1d24,#2a2f39);
+  border:1px solid rgba(255,255,255,.12); box-shadow:inset 0 3px 8px rgba(0,0,0,.7);
+}
+.lang-liquid-mercury .db-toggle-thumb{
+  width:28px; height:28px;
+  background:radial-gradient(circle at 32% 26%,#ffffff,#c6cedb 36%,#737d8d 74%,#3a4150);
+  box-shadow:0 2px 8px rgba(0,0,0,.6), inset 0 1px 2px rgba(255,255,255,.9), inset 0 -2px 4px rgba(0,0,0,.45);
+}
+.lang-liquid-mercury .db-toggle[aria-checked="true"] .db-toggle-track{
+  background:linear-gradient(180deg,#3d4453,#5b6573); border-color:rgba(255,255,255,.2);
+}
+.lang-liquid-mercury .db-toggle[aria-checked="true"] .db-toggle-thumb{
+  background:radial-gradient(circle at 32% 26%,#ffffff,#dbe3ef 36%,#9aa6b6 74%,#5b6573);
+}

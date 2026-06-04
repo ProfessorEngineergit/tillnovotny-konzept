@@ -1,0 +1,45 @@
+/* 05 — AEROSPACE HUD : cockpit telemetry, brackets, phosphor on near-black */
+body.lang-aerospace-hud{
+  --bg:#04060a; --bg-2:#070a10;
+  --surface:rgba(124,255,155,.045); --surface-2:rgba(124,255,155,.07); --surface-3:rgba(124,255,155,.10);
+  --border:rgba(124,255,155,.22); --border-strong:rgba(124,255,155,.50);
+  --text:#d4ffe0; --text-dim:#7fae90; --text-faint:#4d6b58;
+  --accent:#7cff9b; --accent-2:#ffb454; --accent-ink:#03120a; --glow:rgba(124,255,155,.40);
+  --radius:4px; --radius-sm:3px; --radius-lg:6px; --pill:4px;
+}
+.lang-aerospace-hud .db-eyebrow,.lang-aerospace-hud .db-ctl-label{color:var(--accent);}
+.lang-aerospace-hud .db-bg{
+  background:
+    repeating-linear-gradient(0deg,rgba(124,255,155,.045) 0 1px,transparent 1px 3px),
+    radial-gradient(circle at 50% -10%,rgba(124,255,155,.10),transparent 60%),
+    #04060a;
+}
+.lang-aerospace-hud .db-bg>i:nth-child(1){
+  inset:0; width:100%; height:100%;
+  background:linear-gradient(rgba(124,255,155,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(124,255,155,.05) 1px,transparent 1px);
+  background-size:52px 52px;
+  -webkit-mask:radial-gradient(circle at 50% 28%,#000,transparent 78%); mask:radial-gradient(circle at 50% 28%,#000,transparent 78%);
+}
+/* corner brackets on panels & cards */
+.lang-aerospace-hud .db-panel,.lang-aerospace-hud .db-card,.lang-aerospace-hud .db-spec{position:relative;}
+.lang-aerospace-hud .db-panel::before,.lang-aerospace-hud .db-card::before,.lang-aerospace-hud .db-spec::before{
+  content:""; position:absolute; top:8px; left:8px; width:14px; height:14px;
+  border-top:2px solid var(--accent); border-left:2px solid var(--accent); opacity:.7;
+}
+.lang-aerospace-hud .db-panel::after,.lang-aerospace-hud .db-card::after,.lang-aerospace-hud .db-spec::after{
+  content:""; position:absolute; bottom:8px; right:8px; width:14px; height:14px;
+  border-bottom:2px solid var(--accent); border-right:2px solid var(--accent); opacity:.7;
+}
+.lang-aerospace-hud .db-card{overflow:visible;}
+/* guarded missile switch */
+.lang-aerospace-hud .db-toggle-track{
+  width:62px; height:34px; border-radius:3px; background:#0c130d; border:1px solid var(--border-strong);
+  box-shadow:inset 0 0 0 2px rgba(0,0,0,.5);
+}
+.lang-aerospace-hud .db-toggle-thumb{
+  width:26px; height:26px; border-radius:2px; left:4px;
+  background:linear-gradient(180deg,#243a2a,#101c14); border:1px solid rgba(124,255,155,.4);
+}
+.lang-aerospace-hud .db-toggle[aria-checked="true"] .db-toggle-track{border-color:var(--accent); box-shadow:inset 0 0 14px rgba(124,255,155,.35);}
+.lang-aerospace-hud .db-toggle[aria-checked="true"] .db-toggle-thumb{left:calc(100% - 30px); background:linear-gradient(180deg,#7cff9b,#3fae5e); box-shadow:0 0 14px var(--glow);}
+.lang-aerospace-hud .db-toggle-on{color:var(--accent);} .lang-aerospace-hud .db-toggle-off{color:var(--accent-2);}

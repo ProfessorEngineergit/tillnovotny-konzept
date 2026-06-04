@@ -1,0 +1,36 @@
+/* 10 — QUIET FUTURISM : calm, airy, one soft accent. Light-first + dark. */
+body.lang-quiet-futurism{
+  --bg:#f6f7fb; --bg-2:#eef0f6;
+  --surface:#ffffff; --surface-2:#f3f5fa; --surface-3:#eaedf5;
+  --border:rgba(20,24,40,.08); --border-strong:rgba(20,24,40,.16);
+  --text:#1a1d29; --text-dim:#5c6378; --text-faint:#9aa0b2;
+  --accent:#5b6cff; --accent-2:#8a7cff; --accent-ink:#ffffff; --glow:rgba(91,108,255,.28);
+  --radius:20px; --radius-sm:14px; --radius-lg:30px;
+  --shadow:0 10px 30px rgba(30,40,80,.10); --shadow-lg:0 30px 70px rgba(30,40,80,.14);
+}
+.lang-quiet-futurism .db-bg{
+  background:
+    radial-gradient(55% 50% at 82% -10%,rgba(91,108,255,.12),transparent 60%),
+    radial-gradient(50% 50% at 0% 100%,rgba(138,124,255,.10),transparent 60%),
+    #f6f7fb;
+}
+.lang-quiet-futurism .db-card-ico{background:#eef0fb;border-color:rgba(91,108,255,.16);color:var(--accent);}
+/* refined growing pill toggle */
+.lang-quiet-futurism .db-toggle-track{width:60px;height:34px;background:#dfe3ee;border:1px solid transparent;}
+.lang-quiet-futurism .db-toggle-thumb{width:20px;height:20px;left:8px;background:#9aa0b2;}
+.lang-quiet-futurism .db-toggle[aria-checked="true"] .db-toggle-track{background:linear-gradient(135deg,#5b6cff,#8a7cff);box-shadow:0 4px 14px var(--glow);}
+.lang-quiet-futurism .db-toggle[aria-checked="true"] .db-toggle-thumb{width:26px;height:26px;left:calc(100% - 31px);background:#fff;}
+
+/* dark variant via the theme switch */
+body.lang-quiet-futurism[data-theme="dark"]{
+  --bg:#0e1018; --bg-2:#12141e;
+  --surface:#161925; --surface-2:#1c2030; --surface-3:#242a3d;
+  --border:rgba(255,255,255,.08); --border-strong:rgba(255,255,255,.18);
+  --text:#eef1f7; --text-dim:#a3aabb; --text-faint:#6b7388;
+  --accent:#7d8cff; --accent-2:#a99cff; --accent-ink:#0b0d16; --glow:rgba(125,140,255,.35);
+  --shadow:0 10px 30px rgba(0,0,0,.5);
+}
+body.lang-quiet-futurism[data-theme="dark"] .db-bg{
+  background:radial-gradient(55% 50% at 82% -10%,rgba(125,140,255,.16),transparent 60%),radial-gradient(50% 50% at 0% 100%,rgba(169,156,255,.12),transparent 60%),#0e1018;
+}
+body.lang-quiet-futurism[data-theme="dark"] .db-card-ico{background:#1c2030;}

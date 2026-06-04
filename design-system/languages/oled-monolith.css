@@ -1,0 +1,28 @@
+/* 07 — OLED MONOLITH : pure black, one electric line, maximal type (BariumOS) */
+body.lang-oled-monolith{
+  --bg:#000000; --bg-2:#050505;
+  --surface:rgba(255,255,255,.03); --surface-2:rgba(255,255,255,.05); --surface-3:rgba(255,255,255,.08);
+  --border:rgba(255,255,255,.08); --border-strong:rgba(255,255,255,.20);
+  --text:#ffffff; --text-dim:#8a8a8a; --text-faint:#4d4d4d;
+  --accent:#c6f73b; --accent-2:#9be000; --accent-ink:#0a0f00; --glow:rgba(198,247,59,.42);
+  --radius:8px; --radius-sm:6px; --radius-lg:14px;
+  --shadow:0 10px 30px rgba(0,0,0,.8); --shadow-lg:0 30px 80px rgba(0,0,0,.9);
+}
+.lang-oled-monolith .db-bg{background:#000;}
+/* a single electric line crossing the void */
+.lang-oled-monolith .db-bg>i:nth-child(1){
+  left:0; right:0; top:336px; height:1px; width:100%;
+  background:linear-gradient(90deg,transparent,var(--accent),transparent); opacity:.5;
+  box-shadow:0 0 18px var(--glow);
+}
+.lang-oled-monolith .db-title{font-size:clamp(3rem,9.5vw,7rem); letter-spacing:-.01em;}
+.lang-oled-monolith .db-topbar{background:transparent; border-color:var(--border);}
+.lang-oled-monolith .db-card,.lang-oled-monolith .db-panel,.lang-oled-monolith .db-spec{background:#070707;}
+.lang-oled-monolith .db-card-ico{color:var(--accent); background:#0c0c0c; border-color:var(--border);}
+/* stark sliding block */
+.lang-oled-monolith .db-toggle-track{
+  width:64px; height:30px; border-radius:4px; background:#111; border:1px solid var(--border-strong);
+}
+.lang-oled-monolith .db-toggle-thumb{width:24px; height:24px; border-radius:3px; left:3px; background:#3a3a3a;}
+.lang-oled-monolith .db-toggle[aria-checked="true"] .db-toggle-track{background:#0a0f00; border-color:var(--accent);}
+.lang-oled-monolith .db-toggle[aria-checked="true"] .db-toggle-thumb{left:calc(100% - 27px); background:var(--accent); box-shadow:0 0 16px var(--glow);}

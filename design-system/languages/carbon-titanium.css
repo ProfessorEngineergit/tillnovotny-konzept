@@ -1,0 +1,26 @@
+/* 11 — CARBON TITANIUM : machined metal, carbon weave, knurled dial */
+body.lang-carbon-titanium{
+  --bg:#141517; --bg-2:#191b1e;
+  --surface:rgba(255,255,255,.04); --surface-2:rgba(255,255,255,.06); --surface-3:rgba(255,255,255,.09);
+  --border:rgba(255,255,255,.10); --border-strong:rgba(255,255,255,.22);
+  --text:#e9ebee; --text-dim:#a0a4ab; --text-faint:#666b73;
+  --accent:#e0723c; --accent-2:#f0a060; --accent-ink:#1a0e06; --glow:rgba(224,114,60,.35);
+  --radius:8px; --radius-sm:6px; --radius-lg:12px;
+}
+.lang-carbon-titanium .db-bg{
+  background:
+    repeating-linear-gradient(45deg,rgba(255,255,255,.025) 0 2px,transparent 2px 4px),
+    repeating-linear-gradient(-45deg,rgba(0,0,0,.28) 0 2px,transparent 2px 4px),
+    radial-gradient(circle at 50% 0%,#202327,#101113 82%);
+}
+.lang-carbon-titanium .db-topbar,.lang-carbon-titanium .db-panel,.lang-carbon-titanium .db-card,.lang-carbon-titanium .db-spec{
+  background:linear-gradient(180deg,#212327,#17181b);
+  box-shadow:var(--shadow), inset 0 1px 0 rgba(255,255,255,.10), inset 0 -1px 0 rgba(0,0,0,.5);
+}
+.lang-carbon-titanium .db-btn.is-primary{background:linear-gradient(180deg,#f0a060,#d65f2a);color:#1a0e06;box-shadow:0 6px 18px var(--glow),inset 0 1px 0 rgba(255,255,255,.4);}
+.lang-carbon-titanium .db-card-ico{background:linear-gradient(180deg,#26282d,#191b1e);color:var(--accent-2);}
+/* knurled metal dial toggle */
+.lang-carbon-titanium .db-toggle-track{width:66px;height:32px;border-radius:6px;background:linear-gradient(180deg,#0e0f11,#1c1e22);border:1px solid #2a2d32;box-shadow:inset 0 2px 6px rgba(0,0,0,.8);}
+.lang-carbon-titanium .db-toggle-thumb{width:26px;height:26px;border-radius:5px;left:3px;background:repeating-linear-gradient(90deg,#cfd3d8 0 2px,#9aa0a8 2px 4px);box-shadow:0 1px 3px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.6);}
+.lang-carbon-titanium .db-toggle[aria-checked="true"] .db-toggle-track{border-color:var(--accent);box-shadow:inset 0 2px 6px rgba(0,0,0,.8),0 0 10px var(--glow);}
+.lang-carbon-titanium .db-toggle[aria-checked="true"] .db-toggle-thumb{left:calc(100% - 29px);background:repeating-linear-gradient(90deg,#f0a060 0 2px,#c85f28 2px 4px);}

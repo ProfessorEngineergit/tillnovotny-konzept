@@ -1,0 +1,151 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ProfessorEngineer — Design Language Lab</title>
+<style>
+/* ============================================================
+   SHARED FONTS + RESET + TOKEN SCAFFOLD
+   Real Nasalization + Exo 2 embedded locally (../assets/fonts/),
+   supplemented by a few Google display faces for variety.
+   This file must be concatenated FIRST (the @import has to lead).
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,300..800;1,400..600&family=Space+Grotesk:wght@400;500;600;700&family=Orbitron:wght@500;700;900&family=Michroma&family=Chakra+Petch:wght@400;500;600;700&family=Rajdhani:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+@font-face{
+  font-family:"Nasalization";
+  src:url("../assets/fonts/Nasalization.otf") format("opentype");
+  font-weight:400; font-style:normal; font-display:swap;
+}
+@font-face{
+  font-family:"Exo 2 L";
+  src:url("../assets/fonts/Exo2.ttf") format("truetype");
+  font-weight:100 900; font-style:normal; font-display:swap;
+}
+@font-face{
+  font-family:"Exo 2 L";
+  src:url("../assets/fonts/Exo2-Italic.ttf") format("truetype");
+  font-weight:100 900; font-style:italic; font-display:swap;
+}
+
+/* ---- reset ---- */
+*,*::before,*::after{box-sizing:border-box;}
+html{ -webkit-text-size-adjust:100%; }
+body{ margin:0; }
+img,svg{ max-width:100%; display:block; }
+a{ text-decoration:none; color:inherit; }
+button,input,select{ font:inherit; color:inherit; }
+button{ cursor:pointer; background:none; border:none; }
+input::placeholder{ color:inherit; opacity:.5; }
+::-webkit-scrollbar{ width:11px; height:11px; }
+::-webkit-scrollbar-thumb{ background:rgba(140,150,170,.35); border-radius:99px; }
+
+/* ---- global font tokens (languages may override --font-display) ---- */
+:root{
+  --font-display:"Nasalization","Orbitron",sans-serif;
+  --font-body:"Exo 2 L","Exo 2",system-ui,sans-serif;
+  --font-mono:"JetBrains Mono",ui-monospace,"SF Mono",monospace;
+}
+
+body{margin:0;background:#070810;color:#eef1f7;font-family:var(--font-body);}
+.hd{padding:64px clamp(20px,5vw,72px) 30px;border-bottom:1px solid rgba(255,255,255,.08);}
+.hd h1{font-family:var(--font-display);font-weight:400;text-transform:uppercase;letter-spacing:.04em;
+  font-size:clamp(2rem,5vw,3.4rem);margin:0 0 .35em;
+  background:linear-gradient(110deg,#fff,#9fb4ff 60%,#cdb5ff);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.hd p{color:#aab1c2;max-width:60ch;font-size:1.05rem;margin:0;}
+.hd .sub{font-family:var(--font-mono);font-size:.74rem;letter-spacing:.3em;color:#69718a;text-transform:uppercase;margin-bottom:1.4em;display:block;}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,420px);justify-content:center;gap:26px;
+  padding:40px clamp(20px,5vw,72px) 120px;}
+.card{display:block;border:1px solid rgba(255,255,255,.1);border-radius:20px;overflow:hidden;
+  background:#0c0e16;transition:.25s cubic-bezier(.2,.8,.2,1);color:inherit;}
+.card:hover{transform:translateY(-5px);border-color:rgba(159,180,255,.5);box-shadow:0 24px 60px rgba(0,0,0,.6);}
+.thumb{width:100%;height:250px;overflow:hidden;position:relative;background:#05060c;border-bottom:1px solid rgba(255,255,255,.08);}
+.thumb iframe{position:absolute;top:0;left:0;width:1280px;height:1600px;border:0;
+  transform:scale(.328);transform-origin:top left;pointer-events:none;}
+.meta{display:flex;align-items:center;gap:12px;padding:18px 20px 4px;}
+.num{font-family:var(--font-mono);font-size:.8rem;color:#69718a;letter-spacing:.1em;}
+.name{font-family:var(--font-display);font-size:1.05rem;letter-spacing:.04em;text-transform:uppercase;}
+.pending{margin-left:auto;font-family:var(--font-mono);font-size:.6rem;letter-spacing:.1em;color:#ffce7a;
+  border:1px solid rgba(255,206,122,.4);padding:.2em .5em;border-radius:99px;}
+.tag{color:#aab1c2;font-size:.9rem;padding:0 20px 22px;margin:.4em 0 0;}
+</style></head><body>
+<header class="hd">
+  <span class="sub">ProfessorEngineer · Bahrian Novotny — Design Language Lab</span>
+  <h1>15 Futuristic Design Languages</h1>
+  <p>One shared component board — top bar, hero, the signature toggle, controls, app cards and a type/colour spec — rendered in 15 distinct skins. Real Nasalization + Exo 2. Pick the ones that resonate and we refine to perfection.</p>
+</header>
+<main class="grid">
+      <a class="card" href="obsidian-glass.html">
+        <div class="thumb"><iframe src="obsidian-glass.html" loading="lazy" scrolling="no" tabindex="-1" title="Obsidian Glass"></iframe></div>
+        <div class="meta"><span class="num">01</span><span class="name">Obsidian Glass</span></div>
+        <p class="tag">Refractive frosted panels over a starless black. Warm cream light through cold glass.</p>
+      </a>
+      <a class="card" href="liquid-mercury.html">
+        <div class="thumb"><iframe src="liquid-mercury.html" loading="lazy" scrolling="no" tabindex="-1" title="Liquid Mercury"></iframe></div>
+        <div class="meta"><span class="num">02</span><span class="name">Liquid Mercury</span></div>
+        <p class="tag">Reflective chrome that flows. Metaball surfaces, mercury controls, weightless silver.</p>
+      </a>
+      <a class="card" href="aurora-nebula.html">
+        <div class="thumb"><iframe src="aurora-nebula.html" loading="lazy" scrolling="no" tabindex="-1" title="Aurora Nebula"></iframe></div>
+        <div class="meta"><span class="num">03</span><span class="name">Aurora Nebula</span></div>
+        <p class="tag">Living mesh-gradients drift like polar light across deep space.</p>
+      </a>
+      <a class="card" href="holographic-foil.html">
+        <div class="thumb"><iframe src="holographic-foil.html" loading="lazy" scrolling="no" tabindex="-1" title="Holographic Foil"></iframe></div>
+        <div class="meta"><span class="num">04</span><span class="name">Holographic Foil</span></div>
+        <p class="tag">Iridescent prism sheen that shifts with every move. Sticker-flip controls.</p>
+      </a>
+      <a class="card" href="aerospace-hud.html">
+        <div class="thumb"><iframe src="aerospace-hud.html" loading="lazy" scrolling="no" tabindex="-1" title="Aerospace HUD"></iframe></div>
+        <div class="meta"><span class="num">05</span><span class="name">Aerospace HUD</span></div>
+        <p class="tag">Cockpit telemetry. Corner brackets, reticles and phosphor readouts on near-black.</p>
+      </a>
+      <a class="card" href="engineering-blueprint.html">
+        <div class="thumb"><iframe src="engineering-blueprint.html" loading="lazy" scrolling="no" tabindex="-1" title="Engineering Blueprint"></iframe></div>
+        <div class="meta"><span class="num">06</span><span class="name">Engineering Blueprint</span></div>
+        <p class="tag">Technical drawing as interface. Cyan linework, dimensions, a real breaker switch.</p>
+      </a>
+      <a class="card" href="oled-monolith.html">
+        <div class="thumb"><iframe src="oled-monolith.html" loading="lazy" scrolling="no" tabindex="-1" title="OLED Monolith"></iframe></div>
+        <div class="meta"><span class="num">07</span><span class="name">OLED Monolith</span></div>
+        <p class="tag">Pure black, one electric line. Maximal type, minimal chrome. Built for OLED.</p>
+      </a>
+      <a class="card" href="bioluminescent.html">
+        <div class="thumb"><iframe src="bioluminescent.html" loading="lazy" scrolling="no" tabindex="-1" title="Bioluminescent"></iframe></div>
+        <div class="meta"><span class="num">08</span><span class="name">Bioluminescent</span></div>
+        <p class="tag">Abyssal calm with a living glow. Organic forms, jellyfish light, soft blooms.</p>
+      </a>
+      <a class="card" href="plasma-core.html">
+        <div class="thumb"><iframe src="plasma-core.html" loading="lazy" scrolling="no" tabindex="-1" title="Plasma Core"></iframe></div>
+        <div class="meta"><span class="num">09</span><span class="name">Plasma Core</span></div>
+        <p class="tag">Hot energy on cold dark. Igniting controls, magma gradients, reactor glow.</p>
+      </a>
+      <a class="card" href="quiet-futurism.html">
+        <div class="thumb"><iframe src="quiet-futurism.html" loading="lazy" scrolling="no" tabindex="-1" title="Quiet Futurism"></iframe></div>
+        <div class="meta"><span class="num">10</span><span class="name">Quiet Futurism</span></div>
+        <p class="tag">Calm, generous, serene. One soft accent and a lot of air. Light and dark, equally at home.</p>
+      </a>
+      <a class="card" href="carbon-titanium.html">
+        <div class="thumb"><iframe src="carbon-titanium.html" loading="lazy" scrolling="no" tabindex="-1" title="Carbon Titanium"></iframe></div>
+        <div class="meta"><span class="num">11</span><span class="name">Carbon Titanium</span></div>
+        <p class="tag">Machined hardware. Brushed metal, carbon weave, knurled dials, anodized accent.</p>
+      </a>
+      <a class="card" href="quantum-field.html">
+        <div class="thumb"><iframe src="quantum-field.html" loading="lazy" scrolling="no" tabindex="-1" title="Quantum Field"></iframe></div>
+        <div class="meta"><span class="num">12</span><span class="name">Quantum Field</span></div>
+        <p class="tag">A field of nodes and wires. Data made tangible, snapping into place.</p>
+      </a>
+      <a class="card" href="synth-horizon.html">
+        <div class="thumb"><iframe src="synth-horizon.html" loading="lazy" scrolling="no" tabindex="-1" title="Synth Horizon"></iframe></div>
+        <div class="meta"><span class="num">13</span><span class="name">Synth Horizon</span></div>
+        <p class="tag">A neon grid runs to the horizon. Restrained synthwave, modern and sharp.</p>
+      </a>
+      <a class="card" href="paper-lab.html">
+        <div class="thumb"><iframe src="paper-lab.html" loading="lazy" scrolling="no" tabindex="-1" title="Paper Lab"></iframe></div>
+        <div class="meta"><span class="num">14</span><span class="name">Paper Lab</span></div>
+        <p class="tag">Light-mode science. Ink-blue on paper, hairlines and a precise grid.</p>
+      </a>
+      <a class="card" href="vapor-glass.html">
+        <div class="thumb"><iframe src="vapor-glass.html" loading="lazy" scrolling="no" tabindex="-1" title="Vapor Glass"></iframe></div>
+        <div class="meta"><span class="num">15</span><span class="name">Vapor Glass</span></div>
+        <p class="tag">Airy frosted glass over colour. Floating depth, ultra-soft, visionOS-clean.</p>
+      </a></main>
+</body></html>

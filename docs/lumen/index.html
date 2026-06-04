@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LUMEN — ProfessorEngineer Design Language</title>
+<link rel="stylesheet" href="../assets/fonts.css">
+<link rel="stylesheet" href="lumen.css">
+</head>
+<body data-theme="dark" data-bg="field">
+
+  <!-- ===== BACKGROUND LAYERS ===== -->
+  <div class="lx-bg">
+    <canvas class="lx-canvas"></canvas>
+    <div class="lx-aurora"><b></b><b></b><b></b><b></b></div>
+    <div class="lx-vapor"><b></b><b></b><b></b></div>
+  </div>
+
+  <div class="lx-wrap">
+
+    <!-- ===== NAV ===== -->
+    <header class="lx-nav">
+      <a class="lx-brand" href="#"><span class="mark"></span> PROFESSOR<i>ENGINEER</i></a>
+      <span class="spacer"></span>
+      <a class="lx-navlink" href="#">Apps</a>
+      <a class="lx-navlink" href="#">Universe</a>
+      <a class="lx-navlink" href="#">Caelum</a>
+      <button class="lx-btn primary magnetic" style="margin-left:8px">Launch <span class="arr">→</span></button>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section class="lx-section" style="padding:54px 4px 12px">
+      <span class="lx-eyebrow"><i></i> DESIGN&nbsp;LANGUAGE · LUMEN</span>
+      <h1 class="lx-h1">Lumen</h1>
+      <p class="lx-lead">One fluid, bouncy language for every ProfessorEngineer app — aurora light, living glow and frosted glass. Move your mouse across the field below.</p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap">
+        <button class="lx-btn primary magnetic">Launch app <span class="arr">→</span></button>
+        <button class="lx-btn ghost">Documentation</button>
+      </div>
+    </section>
+
+    <!-- ===== COMPONENTS ===== -->
+    <section class="lx-section lx-panel">
+      <span class="lx-label">Signature components — fluid &amp; bouncy</span>
+      <div class="lx-grid lx-cols-2">
+
+        <div>
+          <span class="lx-label">Ambient mode · the signature toggle</span>
+          <div style="display:flex;gap:28px;align-items:center">
+            <button class="lx-toggle" aria-checked="true" aria-label="Ambient mode">
+              <span class="track"><span class="flood"></span></span><span class="thumb"></span>
+            </button>
+            <button class="lx-toggle" aria-checked="false" aria-label="Reduced">
+              <span class="track"><span class="flood"></span></span><span class="thumb"></span>
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <span class="lx-label">Intensity · custom slider</span>
+          <div class="lx-slider" data-min="0" data-max="100" data-value="68">
+            <span class="rail"></span><span class="fill"></span><span class="knob"></span><span class="bubble">68</span>
+          </div>
+        </div>
+
+        <div>
+          <span class="lx-label">Source · segmented</span>
+          <div class="lx-seg">
+            <span class="ind"></span>
+            <button class="active">APOD</button><button>ESO</button><button>JWST</button>
+          </div>
+        </div>
+
+        <div>
+          <span class="lx-label">Search · input</span>
+          <label class="lx-input"><span class="ico">⌕</span><input type="text" placeholder="Search the universe…"></label>
+        </div>
+
+        <div>
+          <span class="lx-label">Options · check &amp; radio</span>
+          <div style="display:flex;gap:26px;flex-wrap:wrap;align-items:center">
+            <label class="lx-check"><input type="checkbox" checked><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg></span><span>Auto-refresh</span></label>
+            <label class="lx-check"><input type="checkbox"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg></span><span>HDR</span></label>
+            <label class="lx-check radio"><input type="radio" name="q" checked><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg></span><span>4K</span></label>
+            <label class="lx-check radio"><input type="radio" name="q"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg></span><span>8K</span></label>
+          </div>
+        </div>
+
+        <div>
+          <span class="lx-label">Actions · buttons (try the magnetic ones)</span>
+          <div style="display:flex;gap:12px;flex-wrap:wrap">
+            <button class="lx-btn primary magnetic">Primary <span class="arr">→</span></button>
+            <button class="lx-btn ghost magnetic">Magnetic</button>
+            <button class="lx-btn ghost">Ghost</button>
+          </div>
+        </div>
+
+        <div>
+          <span class="lx-label">Sync · progress</span>
+          <div class="lx-progress"><i data-value="72"></i></div>
+        </div>
+
+        <div>
+          <span class="lx-label">Tags · chips</span>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <span class="lx-chip">macOS</span><span class="lx-chip">Web</span><span class="lx-chip">Three.js</span><span class="lx-chip">OLED</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== CARDS ===== -->
+    <section class="lx-section">
+      <span class="lx-label">App cards — hover to tilt</span>
+      <div class="lx-grid lx-cols-3">
+        <article class="lx-card" data-tilt>
+          <div class="glow"></div><div class="ico">◐</div>
+          <h3>Caelum</h3>
+          <p>The cosmos on your desktop — NASA APOD and 10 sources in a glass menu bar.</p>
+          <a href="#">Open <span class="arr">→</span></a>
+        </article>
+        <article class="lx-card" data-tilt>
+          <div class="glow"></div><div class="ico">✦</div>
+          <h3>My Universe</h3>
+          <p>Fly a starship through my work. A portfolio you explore instead of scroll.</p>
+          <a href="#">Open <span class="arr">→</span></a>
+        </article>
+        <article class="lx-card" data-tilt>
+          <div class="glow"></div><div class="ico">▮</div>
+          <h3>Barium OS</h3>
+          <p>An OLED, dark-first dev distro. Streamlined, quiet, built to disappear.</p>
+          <a href="#">Open <span class="arr">→</span></a>
+        </article>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ===== BACKGROUND + THEME DOCK ===== -->
+  <nav class="lx-dock" aria-label="background and theme">
+    <span class="dlabel">BG</span>
+    <button class="lx-dot-btn active" data-set-bg="field" title="Magnetic field">⣿</button>
+    <button class="lx-dot-btn" data-set-bg="aurora" title="Aurora (animated)">✦</button>
+    <button class="lx-dot-btn" data-set-bg="bio" title="Bioluminescent (living)">✺</button>
+    <button class="lx-dot-btn" data-set-bg="vapor" title="Vapor glass">✿</button>
+    <span class="dlabel">|</span>
+    <button class="lx-dot-btn" data-toggle-theme title="Light / dark">◐</button>
+  </nav>
+
+  <script src="lumen.js"></script>
+</body>
+</html>

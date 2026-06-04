@@ -1,0 +1,26 @@
+/* 08 — BIOLUMINESCENT : abyssal calm with a living glow, jellyfish toggle */
+body.lang-bioluminescent{
+  --bg:#03101a; --bg-2:#04161f;
+  --surface:rgba(95,255,224,.05); --surface-2:rgba(95,255,224,.08); --surface-3:rgba(95,255,224,.12);
+  --border:rgba(107,168,255,.18); --border-strong:rgba(95,255,224,.40);
+  --text:#e6fbff; --text-dim:#8fc6c9; --text-faint:#557a82;
+  --accent:#5fffe0; --accent-2:#6ba8ff; --accent-ink:#022018; --glow:rgba(95,255,224,.45);
+  --radius:24px; --radius-sm:16px; --radius-lg:34px;
+}
+.lang-bioluminescent .db-bg{background:radial-gradient(circle at 50% 62%,#04161f,#020b12 82%);}
+.lang-bioluminescent .db-bg>i{border-radius:50%; filter:blur(64px); opacity:.45; mix-blend-mode:screen;}
+.lang-bioluminescent .db-bg>i:nth-child(1){width:520px;height:520px;top:-120px;left:8%;background:radial-gradient(circle,#0f9f8a,transparent 66%);}
+.lang-bioluminescent .db-bg>i:nth-child(2){width:500px;height:500px;bottom:-150px;right:4%;background:radial-gradient(circle,#3a5fd9,transparent 66%);}
+.lang-bioluminescent .db-bg>i:nth-child(3){
+  width:3px;height:3px;top:26%;left:55%;border-radius:50%;background:transparent;filter:none;opacity:1;mix-blend-mode:normal;
+  box-shadow:-220px 120px 0 0 rgba(95,255,224,.6),80px 260px 0 0 rgba(107,168,255,.5),320px 60px 0 0 rgba(95,255,224,.45),
+    -360px 320px 0 0 rgba(95,255,224,.4),140px -40px 0 0 rgba(107,168,255,.5),-120px 440px 0 0 rgba(95,255,224,.35);
+}
+.lang-bioluminescent .db-title{background:linear-gradient(120deg,#eafffb,#5fffe0 50%,#6ba8ff);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.lang-bioluminescent .db-card-ico{color:var(--accent);background:rgba(95,255,224,.10);border-color:rgba(95,255,224,.25);box-shadow:0 0 20px rgba(95,255,224,.15) inset;}
+/* jellyfish-orb toggle */
+.lang-bioluminescent .db-toggle-track{width:72px;height:36px;background:rgba(95,255,224,.08);border:1px solid rgba(95,255,224,.25);}
+.lang-bioluminescent .db-toggle-thumb{width:28px;height:28px;left:5px;background:radial-gradient(circle at 40% 34%,#eafffb,#5fffe0 55%,#1f9f8a);box-shadow:0 0 18px var(--glow);}
+.lang-bioluminescent .db-toggle[aria-checked="true"] .db-toggle-track{background:linear-gradient(90deg,rgba(95,255,224,.25),rgba(107,168,255,.25));border-color:transparent;box-shadow:0 0 22px var(--glow);}
+.lang-bioluminescent .db-toggle[aria-checked="true"] .db-toggle-thumb{left:calc(100% - 33px);animation:jelly 2.6s ease-in-out infinite;}
+@keyframes jelly{0%,100%{box-shadow:0 0 18px var(--glow);}50%{box-shadow:0 0 32px 5px var(--glow);}}

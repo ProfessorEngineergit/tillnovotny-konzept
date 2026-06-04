@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" data-render="{{NUM}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{NUM}} · {{NAME}} — ProfessorEngineer Design Language</title>
+<style>
+{{STYLE}}
+</style>
+</head>
+<body data-theme="{{THEME}}" class="lang-{{SLUG}}">
+<div class="db-stage">
+  <div class="db-bg" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <main class="db-frame">
+
+    <!-- ===== TOPBAR ===== -->
+    <header class="db-topbar">
+      <a class="db-brand" href="#">
+        <span class="db-logo" aria-hidden="true"></span>
+        <span class="db-wordmark">PROFESSOR<i>ENGINEER</i></span>
+      </a>
+      <nav class="db-nav">
+        <a href="#" class="is-active">Apps</a>
+        <a href="#">Universe</a>
+        <a href="#">Caelum</a>
+        <a href="#">Lab</a>
+      </nav>
+      <div class="db-actions">
+        <button class="db-theme" data-action="theme" aria-label="Toggle light / dark"><span></span></button>
+        <button class="db-btn is-ghost db-sm">Sign in</button>
+      </div>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section class="db-hero">
+      <span class="db-eyebrow">DESIGN&nbsp;LANGUAGE · {{NUM}}</span>
+      <h1 class="db-title">{{NAME}}</h1>
+      <p class="db-lead">{{TAGLINE}}</p>
+      <div class="db-cta">
+        <button class="db-btn is-primary">Launch app <span class="db-arr">→</span></button>
+        <button class="db-btn is-ghost">Documentation</button>
+      </div>
+      <div class="db-metarow">
+        <span class="db-badge">v2.6</span>
+        <span class="db-sep"></span>
+        <span>Nasalization · Exo 2</span>
+        <span class="db-sep"></span>
+        <span class="db-mono">{{SLUG}}</span>
+      </div>
+    </section>
+
+    <!-- ===== CONTROLS / signature toggle + friends ===== -->
+    <section class="db-panel db-controls">
+      <div class="db-ctl db-ctl-hero">
+        <span class="db-ctl-label">Ambient mode</span>
+        <button class="db-toggle" role="switch" aria-checked="true" data-action="toggle">
+          <span class="db-toggle-track"><span class="db-toggle-thumb"></span></span>
+          <span class="db-toggle-on">ON</span>
+          <span class="db-toggle-off">OFF</span>
+        </button>
+      </div>
+      <div class="db-ctl">
+        <span class="db-ctl-label">Intensity</span>
+        <div class="db-range"><input type="range" min="0" max="100" value="68" aria-label="Intensity"></div>
+      </div>
+      <div class="db-ctl">
+        <span class="db-ctl-label">Source</span>
+        <div class="db-seg" role="tablist">
+          <button class="is-active">APOD</button><button>ESO</button><button>JWST</button>
+        </div>
+      </div>
+      <div class="db-ctl">
+        <span class="db-ctl-label">Search</span>
+        <label class="db-field"><span class="db-field-ico">⌕</span><input type="text" placeholder="Search the universe…"></label>
+      </div>
+    </section>
+
+    <!-- ===== CARDS ===== -->
+    <section class="db-cards">
+      <article class="db-card">
+        <div class="db-card-ico" data-ico="caelum">◐</div>
+        <span class="db-chip">macOS</span>
+        <h3 class="db-card-title">CAELUM</h3>
+        <p class="db-card-desc">The cosmos on your desktop — NASA APOD and 10 sources in an obsidian-glass menu bar.</p>
+        <a class="db-card-link" href="#">Open<span class="db-arr">→</span></a>
+      </article>
+      <article class="db-card is-feature">
+        <div class="db-card-ico" data-ico="universe">✦</div>
+        <span class="db-chip">Web</span>
+        <h3 class="db-card-title">MY UNIVERSE</h3>
+        <p class="db-card-desc">Fly a starship through my work. A portfolio you explore instead of scroll.</p>
+        <a class="db-card-link" href="#">Open<span class="db-arr">→</span></a>
+      </article>
+      <article class="db-card">
+        <div class="db-card-ico" data-ico="barium">▮</div>
+        <span class="db-chip">Linux</span>
+        <h3 class="db-card-title">BARIUM OS</h3>
+        <p class="db-card-desc">An OLED, dark-first dev distro. Streamlined, quiet, built to disappear.</p>
+        <a class="db-card-link" href="#">Open<span class="db-arr">→</span></a>
+      </article>
+    </section>
+
+    <!-- ===== SPEC STRIP ===== -->
+    <footer class="db-spec">
+      <div class="db-spec-pal" aria-label="palette">
+        <span class="sw" style="background:var(--bg)"></span>
+        <span class="sw" style="background:var(--surface)"></span>
+        <span class="sw" style="background:var(--border-strong)"></span>
+        <span class="sw" style="background:var(--text-dim)"></span>
+        <span class="sw" style="background:var(--accent)"></span>
+        <span class="sw" style="background:var(--accent-2)"></span>
+      </div>
+      <div class="db-spec-type">
+        <span class="db-aa db-aa-display">Aa</span>
+        <span class="db-aa db-aa-body">Aa</span>
+      </div>
+      <div class="db-spec-name">{{NAME}}</div>
+    </footer>
+
+  </main>
+</div>
+
+<!-- render switcher -->
+<nav class="db-switch" aria-label="render switcher">
+  <a href="{{PREV_HREF}}" title="previous">←</a>
+  <a href="index.html" class="db-switch-pos">{{POS}}</a>
+  <a href="{{NEXT_HREF}}" title="next">→</a>
+</nav>
+
+<script src="../assets/board.js"></script>
+</body>
+</html>

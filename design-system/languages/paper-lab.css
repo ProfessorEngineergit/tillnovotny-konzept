@@ -1,0 +1,38 @@
+/* 14 — PAPER LAB : light-mode science, ink on paper, a precise ink toggle */
+body.lang-paper-lab{
+  --bg:#f4f3ee; --bg-2:#faf9f5;
+  --surface:#ffffff; --surface-2:#faf9f4; --surface-3:#efede5;
+  --border:rgba(30,40,60,.12); --border-strong:rgba(30,40,60,.30);
+  --text:#1c2230; --text-dim:#54607a; --text-faint:#8b94a6;
+  --accent:#1d3a8a; --accent-2:#3257c5; --accent-ink:#ffffff; --glow:rgba(29,58,138,.18);
+  --radius:6px; --radius-sm:4px; --radius-lg:10px;
+  --shadow:0 8px 24px rgba(20,30,60,.08); --shadow-lg:0 24px 60px rgba(20,30,60,.12);
+}
+.lang-paper-lab .db-bg{
+  background:
+    linear-gradient(rgba(30,40,60,.05) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(30,40,60,.05) 1px,transparent 1px),
+    #f4f3ee;
+  background-size:28px 28px;
+}
+.lang-paper-lab .db-eyebrow,.lang-paper-lab .db-ctl-label,.lang-paper-lab .db-badge{color:var(--accent);}
+.lang-paper-lab .db-card-ico{background:#eef1fb;border-color:rgba(29,58,138,.18);color:var(--accent);}
+/* precise ink toggle: empty outline -> ink-filled */
+.lang-paper-lab .db-toggle-track{width:58px;height:28px;background:transparent;border:1.5px solid var(--border-strong);}
+.lang-paper-lab .db-toggle-thumb{width:18px;height:18px;left:4px;background:var(--text-dim);}
+.lang-paper-lab .db-toggle[aria-checked="true"] .db-toggle-track{background:var(--accent);border-color:var(--accent);}
+.lang-paper-lab .db-toggle[aria-checked="true"] .db-toggle-thumb{left:calc(100% - 22px);background:#fff;}
+
+/* dark variant via the theme switch */
+body.lang-paper-lab[data-theme="dark"]{
+  --bg:#10131a; --bg-2:#141823;
+  --surface:#171b24; --surface-2:#1d2230; --surface-3:#242a3a;
+  --border:rgba(255,255,255,.10); --border-strong:rgba(255,255,255,.26);
+  --text:#eaf0fb; --text-dim:#9fb0c8; --text-faint:#6b7890;
+  --accent:#6f96ff; --accent-2:#9ab4ff; --accent-ink:#0a0f1c; --glow:rgba(111,150,255,.30);
+}
+body.lang-paper-lab[data-theme="dark"] .db-bg{
+  background:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px),#10131a;
+  background-size:28px 28px;
+}
+body.lang-paper-lab[data-theme="dark"] .db-card-ico{background:#1d2230;}

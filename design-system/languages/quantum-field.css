@@ -1,0 +1,28 @@
+/* 12 — QUANTUM FIELD : a field of nodes and wires, a snapping node toggle */
+body.lang-quantum-field{
+  --bg:#06080f; --bg-2:#090c16;
+  --surface:rgba(120,200,255,.04); --surface-2:rgba(120,200,255,.07); --surface-3:rgba(120,200,255,.10);
+  --border:rgba(120,200,255,.16); --border-strong:rgba(77,225,255,.40);
+  --text:#e8f4ff; --text-dim:#9bb6cf; --text-faint:#5b708a;
+  --accent:#4de1ff; --accent-2:#b07cff; --accent-ink:#03121a; --glow:rgba(77,225,255,.40);
+  --radius:12px; --radius-lg:20px;
+}
+.lang-quantum-field .db-bg{
+  background:
+    radial-gradient(rgba(120,200,255,.18) 1px,transparent 1.4px) 0 0/26px 26px,
+    radial-gradient(circle at 20% 22%,rgba(77,225,255,.12),transparent 55%),
+    radial-gradient(circle at 80% 76%,rgba(176,124,255,.12),transparent 55%),
+    #06080f;
+}
+.lang-quantum-field .db-bg>i:nth-child(1){width:8px;height:8px;border-radius:50%;top:30%;left:22%;background:#4de1ff;box-shadow:0 0 16px 4px var(--glow);}
+.lang-quantum-field .db-bg>i:nth-child(2){width:6px;height:6px;border-radius:50%;top:64%;left:74%;background:#b07cff;box-shadow:0 0 14px 4px rgba(176,124,255,.5);}
+.lang-quantum-field .db-bg>i:nth-child(3){width:5px;height:5px;border-radius:50%;top:18%;left:62%;background:#4de1ff;box-shadow:0 0 12px 3px var(--glow);}
+.lang-quantum-field .db-title{background:linear-gradient(110deg,#e8f4ff,#4de1ff 50%,#b07cff);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.lang-quantum-field .db-card-ico{color:var(--accent);background:rgba(77,225,255,.08);border-color:rgba(77,225,255,.22);}
+/* node-on-a-wire toggle: the thumb snaps between two terminals */
+.lang-quantum-field .db-toggle-track{width:72px;height:8px;border-radius:99px;background:var(--surface-3);border:1px solid var(--border);overflow:visible;}
+.lang-quantum-field .db-toggle-track::before,.lang-quantum-field .db-toggle-track::after{content:"";position:absolute;top:50%;transform:translateY(-50%);width:10px;height:10px;border-radius:50%;background:var(--surface-3);border:1px solid var(--border-strong);}
+.lang-quantum-field .db-toggle-track::before{left:-3px;} .lang-quantum-field .db-toggle-track::after{right:-3px;}
+.lang-quantum-field .db-toggle-thumb{width:20px;height:20px;left:-2px;background:#4de1ff;box-shadow:0 0 14px var(--glow);}
+.lang-quantum-field .db-toggle[aria-checked="true"] .db-toggle-track{background:linear-gradient(90deg,#4de1ff,#b07cff);border-color:transparent;box-shadow:0 0 12px var(--glow);}
+.lang-quantum-field .db-toggle[aria-checked="true"] .db-toggle-thumb{left:calc(100% - 18px);background:#b07cff;box-shadow:0 0 14px rgba(176,124,255,.6);}

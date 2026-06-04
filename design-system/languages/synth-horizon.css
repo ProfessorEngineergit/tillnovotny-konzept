@@ -1,0 +1,32 @@
+/* 13 — SYNTH HORIZON : restrained synthwave, a neon-tube toggle */
+body.lang-synth-horizon{
+  --bg:#0d0a1f; --bg-2:#120e29;
+  --surface:rgba(255,255,255,.05); --surface-2:rgba(255,255,255,.08); --surface-3:rgba(255,255,255,.12);
+  --border:rgba(255,61,203,.22); --border-strong:rgba(45,226,230,.45);
+  --text:#f3eaff; --text-dim:#b6a6d6; --text-faint:#6f6390;
+  --accent:#ff3dcb; --accent-2:#2de2e6; --accent-ink:#1a0518; --glow:rgba(255,61,203,.40);
+  --radius:10px; --radius-lg:16px;
+}
+.lang-synth-horizon .db-bg{background:linear-gradient(180deg,#0d0a1f 0%,#1a0e3a 56%,#2a1050 70%,#0d0a1f 71%);}
+/* striped retro sun */
+.lang-synth-horizon .db-bg>i:nth-child(2){
+  width:360px;height:360px;border-radius:50%;left:50%;top:16%;transform:translateX(-50%);
+  background:linear-gradient(180deg,#ff8a3d,#ff3dcb);opacity:.6;
+  -webkit-mask:repeating-linear-gradient(0deg,#000 0 10px,transparent 10px 16px);mask:repeating-linear-gradient(0deg,#000 0 10px,transparent 10px 16px);
+}
+/* perspective neon grid floor */
+.lang-synth-horizon .db-bg>i:nth-child(1){
+  left:-50%;right:-50%;width:200%;height:58%;bottom:0;
+  background:
+    repeating-linear-gradient(90deg,rgba(45,226,230,.5) 0 1px,transparent 1px 64px),
+    repeating-linear-gradient(0deg,rgba(45,226,230,.5) 0 1px,transparent 1px 64px);
+  transform:perspective(300px) rotateX(72deg);transform-origin:bottom;opacity:.35;
+  -webkit-mask:linear-gradient(0deg,#000,transparent 90%);mask:linear-gradient(0deg,#000,transparent 90%);
+}
+.lang-synth-horizon .db-title{background:linear-gradient(110deg,#ff3dcb,#fff 50%,#2de2e6);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.lang-synth-horizon .db-card-ico{color:var(--accent-2);background:rgba(45,226,230,.08);border-color:rgba(45,226,230,.3);}
+/* neon-tube toggle */
+.lang-synth-horizon .db-toggle-track{width:72px;height:30px;background:rgba(255,255,255,.04);border:1px solid var(--accent);box-shadow:0 0 10px rgba(255,61,203,.4),inset 0 0 8px rgba(255,61,203,.2);}
+.lang-synth-horizon .db-toggle-thumb{width:22px;height:22px;left:4px;background:#fff;box-shadow:0 0 12px #fff;}
+.lang-synth-horizon .db-toggle[aria-checked="true"] .db-toggle-track{border-color:var(--accent-2);box-shadow:0 0 14px rgba(45,226,230,.6),inset 0 0 10px rgba(45,226,230,.3);}
+.lang-synth-horizon .db-toggle[aria-checked="true"] .db-toggle-thumb{left:calc(100% - 26px);background:var(--accent-2);box-shadow:0 0 16px var(--accent-2);}
