@@ -1,8 +1,8 @@
-# Till Novotny — Konzept-Prototyp
+# Till Novotny - Konzept-Prototyp
 
 Ein **Demo-Prototyp** als Vorschlag, wie die _Inhalte_ der bestehenden
 panlogos-Webauftritte unter der neuen, auf den **Namen Till Novotny**
-ausgerichteten Marke erscheinen könnten – im echten Design der neuen Seite
+ausgerichteten Marke erscheinen könnten - im echten Design der neuen Seite
 (<https://tillnovotny.de>): Inter-Schrift, Schwarz auf Off-White, Pink-Akzent.
 
 > **Hinweis:** Vorschlag/Prototyp, keine fertige Website. Es werden ausschließlich
@@ -11,13 +11,13 @@ ausgerichteten Marke erscheinen könnten – im echten Design der neuen Seite
 
 ## Drei Haupt-Tabs
 
-1. **Enneagramm** — der Inhalt, der heute schon auf der neuen Seite steht
+1. **Enneagramm** - der Inhalt, der heute schon auf der neuen Seite steht
    (Selbst-Entwicklung, Über mich, Leitgedanke, Kontakt).
-2. **Panlogos** — der **komplette migrierte Inhalt** der alten Seiten
+2. **Panlogos** - der **komplette migrierte Inhalt** der alten Seiten
    (panlogos.org + panlogos.de) im neuen Design, mit Seitenleisten-Navigation.
    43 Inhaltsseiten in 7 Gruppen: Idee & Philosophie, Team, Übungen, Werkzeuge,
    Wissen, Das Logo, Über Till.
-3. **Partner** — die Partner:innen wie auf der neuen Seite; alle Links führen
+3. **Partner** - die Partner:innen wie auf der neuen Seite; alle Links führen
    extern zu den jeweils eigenen Websites (mit ↗ markiert).
 
 ## Ansehen
@@ -52,6 +52,6 @@ docs/
 Die lokal nachgebaute **alte** Website (Offline-Mirror, ~33 MB unter `site/`)
 ist über `.gitignore` bewusst aus dem Repo ausgeschlossen.
 
-## Entwicklung und KI-Beteiligung
+## KI-Beteiligung
 
-Kleines, KI-gestützt entwickeltes Lern- oder Experimentierprojekt. Die Historie des Hauptbranches enthält ausdrücklich Claude zugeschriebene Beiträge ([Beispiel](https://github.com/ProfessorEngineergit/tillnovotny-konzept/commit/5fdccd94c57e4164c40e949972e8b9cf98ba312b)). Das belegt KI-Beteiligung an diesen Beiträgen, nicht die Herkunft jeder Zeile oder eine unabhängige Prüfung. Bestehende Autor-, Co-Autoren- und Sitzungsangaben bleiben erhalten.
+Einzelne Code-Beiträge sind ausdrücklich KI-Tools zugeschrieben: [generated with Claude Code](https://github.com/ProfessorEngineergit/tillnovotny-konzept/commit/a76704378cdca93442d3e6f2c6756756188554e9). Das gilt für diese Beiträge, nicht pauschal für alle Dateien.
