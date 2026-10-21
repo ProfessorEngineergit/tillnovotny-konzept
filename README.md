@@ -51,3 +51,7 @@ docs/
 
 Die lokal nachgebaute **alte** Website (Offline-Mirror, ~33 MB unter `site/`)
 ist über `.gitignore` bewusst aus dem Repo ausgeschlossen.
+
+## Entwicklung und KI-Beteiligung
+
+Kleines, KI-gestützt entwickeltes Lern- oder Experimentierprojekt. Die Historie des Hauptbranches enthält ausdrücklich Claude zugeschriebene Beiträge ([Beispiel](https://github.com/ProfessorEngineergit/tillnovotny-konzept/commit/5fdccd94c57e4164c40e949972e8b9cf98ba312b)). Das belegt KI-Beteiligung an diesen Beiträgen, nicht die Herkunft jeder Zeile oder eine unabhängige Prüfung. Bestehende Autor-, Co-Autoren- und Sitzungsangaben bleiben erhalten.
