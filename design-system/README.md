@@ -1,4 +1,4 @@
-# ProfessorEngineer — Design Language Lab
+# ProfessorEngineer - Design Language Lab
 
 15 futuristic, highly distinct design languages for the ProfessorEngineer /
 Bahrian-Novotny app universe (web · mobile · desktop). Each language is rendered
@@ -13,7 +13,7 @@ python3 -m http.server 4178 --directory design-system
 ```
 
 Every render page has a ← / → switcher (bottom center) to flip through all 15.
-Click the signature **toggle** and the **◐ theme dot** (top right) — they are live.
+Click the signature **toggle** and the **◐ theme dot** (top right) - they are live.
 
 ## The 15 languages
 
