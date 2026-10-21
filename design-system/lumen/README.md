@@ -1,8 +1,8 @@
-# LUMEN — the ProfessorEngineer main design language
+# LUMEN - the ProfessorEngineer main design language
 
 A fluid, bouncy, dark-first language (Aurora × Bioluminescent × Vapor Glass) with
 **3 switchable backgrounds** and a **Vapor-Glass light mode**, meant to drop into
-every app — current and future.
+every app - current and future.
 
 ## Try it
 `http://localhost:4178/lumen/index.html` (server: `python3 -m http.server 4178 --directory design-system`).
@@ -10,11 +10,11 @@ Bottom dock: switch background (🧲 magnetic field · ✦ aurora · ✺ biolumi
 Move the mouse across the field; hover the magnetic buttons; drag the slider; flip the toggle.
 
 ## Backgrounds
-1. **field** — dense dot grid; **static at rest**, warps around the cursor only while moving
+1. **field** - dense dot grid; **static at rest**, warps around the cursor only while moving
    (point under cursor stays, surrounding ring is pulled in, falloff to the edge), spring physics.
-2. **aurora** — animated flowing polar-light gradients (pure CSS).
-3. **bio** — living glowing particles that drift and pulse on their own.
-4. **light** — forces the Vapor-Glass look (pastel orbs + frosted glass) regardless of background.
+2. **aurora** - animated flowing polar-light gradients (pure CSS).
+3. **bio** - living glowing particles that drift and pulse on their own.
+4. **light** - forces the Vapor-Glass look (pastel orbs + frosted glass) regardless of background.
 
 ## Drop into an app
 ```html
